@@ -1,0 +1,32 @@
+## ============================================================
+## Documentação de Testes da API - Módulo de Alunos (GymSystem)
+##
+## Nota: Infelizmente estes testes dentro do IntelliJ não foram
+## possíveis, pois exigem a licença Ultimate, então decidi
+## não continuar por não conseguir averiguar os testes aqui.
+## Os testes práticos e validações foram executados via Postman.
+## ============================================================
+@baseUrl = http://localhost:8080
+
+### Cadastrar aluno
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+  "nome": "Gabriel Santos",
+  "dataNascimento": "2002-08-21",
+  "sexo": "M",
+  "telefone": "1123456789",
+  "celular": "11987654321",
+  "email": "gabriel.santos@email.com",
+  "observacao": "Aluno de desenvolvimento de software",
+  "endereco": {
+    "rua": "Rua das Palmeiras",
+    "numero": "250",
+    "complemento": "Casa 2",
+    "bairro": "Vila Nova",
+    "cidade": "Guarulhos",
+    "estado": "SP",
+    "cep": "07000-000"
+  }
+}
