@@ -11,10 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
-public class GlobalExcepetionHandler extends RuntimeException {
-    public GlobalExcepetionHandler(String message) {
-        super(message);
-    }
+
+public class GlobalExcepetionHandler  {
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErroResponse> tratarErroValidacao(MethodArgumentNotValidException ex){
         List<String> mensagens =  ex.getBindingResult()
