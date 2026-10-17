@@ -1,5 +1,6 @@
 package dev.gabryel.demo.controller;
 
+import dev.gabryel.demo.doc.IAlunoControllerDoc;
 import dev.gabryel.demo.dto.AlunoFiltroRequest;
 import dev.gabryel.demo.dto.AlunoRequest;
 import dev.gabryel.demo.dto.AlunoResponse;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/alunos")
-public class AlunoController {
+public class AlunoController implements IAlunoControllerDoc {
 
     private final AlunoService alunoService;
 

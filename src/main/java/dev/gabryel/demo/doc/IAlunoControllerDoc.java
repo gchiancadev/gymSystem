@@ -70,6 +70,7 @@ public interface IAlunoControllerDoc {
                 )
                 AlunoRequest alunoRequest
             );
+    //===============================
     @Operation(
             summary = "Listar alunos",
             description = "Lista alunos de forma paginada, permitindo filtros opcionais por"+
@@ -84,6 +85,55 @@ public interface IAlunoControllerDoc {
             @Parameter(description = "Informações de paginação e ordenação")
             Pageable pageable
     );
+    //===============================
+    @Operation(
+            summary = "Buscar por ID",
+            description = "Retorna os dados resumidos de um Aluno específico",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Aluno encontrado"),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Aluno não encontrado",
+                            content = @Content(schema = @Schema(implementation = Error.class))
+                    )
+            }
+    )
+    AlunoResponse buscarPorId(
+            @Parameter(description = "Id do aluno", example = "2", required = true)
+    Long id);
+    //===============================
+    @Operation(
+            summary = "Atualizar aluno por ID",
+            description = "Retorna Aluno atualizado",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Aluno atulizado"),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Aluno não encontrado",
+                            content = @Content(schema = @Schema(implementation = Error.class))
+                    )
+            }
+    )
+    AlunoResponse atualizar(
+            @Parameter(description = "Id do aluno", example = "2", required = true)
+            Long id,
+            @RequestBody @Valid AlunoRequest alunoRequest);
+    //===============================
+    @Operation(
+            summary = "Excluir por ID",
+            description = "Deleta o aluno",
+            responses = {
+                    @ApiResponse(responseCode = "204", description = "Aluno deletado"),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "Aluno não encontrado",
+                            content = @Content(schema = @Schema(implementation = Error.class))
+                    )
+            }
+    )
+    void excluir(
+            @Parameter(description = "Id do aluno", example = "2", required = true)
+            Long id);
 }
 
 
